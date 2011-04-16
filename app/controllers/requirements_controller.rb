@@ -44,13 +44,15 @@ class RequirementsController < ApplicationController
 
     respond_to do |format|
       if @requirement.save
-        format.html { redirect_to(@requirement, :notice => 'Requirement was successfully created.') }
+        format.html { redirect_to(:action => 'edit', :id => @requirement.id, :notice => 'Requirement was successfully created.') }
         format.xml  { render :xml => @requirement, :status => :created, :location => @requirement }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @requirement.errors, :status => :unprocessable_entity }
       end
     end
+    
+   
   end
 
   # PUT /requirements/1

@@ -20,7 +20,7 @@
 <%= link_to 'Back', requirements_path %>
 
 
-<%= form_for @requirement.build(:parent_requirement_id => @requirement.id) do |f| %>
+<%= form_for @requirement.children.build() do |f| %>
   <div><%= f.hidden_field :parent_requirement_id %></div>
-  <div class="actions"><%= f.submit "Follow" %></div>
+  <div class="actions"><%= f.submit "Add child requirement" %></div>
 <% end %>
