@@ -1,4 +1,13 @@
 Rqsmart::Application.routes.draw do
+  root :to => "home#index"
+  
+  resources :traces
+  resources :requirements do
+    member do
+        post 'create_child_requirement'
+    end
+  end 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

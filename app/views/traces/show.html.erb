@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Requirement:</b>
+  <%= @trace.requirement_id %>
+</p>
+
+<p>
+  <b>Dependent requirement:</b>
+  <%= @trace.dependent_requirement_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_trace_path(@trace) %> |
+<%= link_to 'Back', traces_path %>

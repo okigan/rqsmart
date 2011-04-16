@@ -1,0 +1,25 @@
+<%= form_for(@trace) do |f| %>
+  <% if @trace.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trace.errors.count, "error") %> prohibited this trace from being saved:</h2>
+
+      <ul>
+      <% @trace.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :requirement_id %><br />
+    <%= f.text_field :requirement_id %>
+  </div>
+  <div class="field">
+    <%= f.label :dependent_requirement_id %><br />
+    <%= f.text_field :dependent_requirement_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

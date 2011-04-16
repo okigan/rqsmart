@@ -1,0 +1,4 @@
+rails g scaffold Requirement title:string body:text parent_requirement_id:integer 
+rails g scaffold Trace requirement_id:integer dependent_requirement_id:integer
+
+rails g controller Home

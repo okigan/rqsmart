@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  requirement_id: 1
+  dependent_requirement_id: 1
+
+two:
+  requirement_id: 1
+  dependent_requirement_id: 1

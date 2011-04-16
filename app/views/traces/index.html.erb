@@ -1,0 +1,25 @@
+<h1>Listing traces</h1>
+
+<table>
+  <tr>
+    <th>Requirement</th>
+    <th>Dependent requirement</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @traces.each do |trace| %>
+  <tr>
+    <td><%= trace.requirement_id %></td>
+    <td><%= trace.dependent_requirement_id %></td>
+    <td><%= link_to 'Show', trace %></td>
+    <td><%= link_to 'Edit', edit_trace_path(trace) %></td>
+    <td><%= link_to 'Destroy', trace, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Trace', new_trace_path %>
