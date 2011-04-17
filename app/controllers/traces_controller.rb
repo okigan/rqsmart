@@ -24,7 +24,7 @@ class TracesController < ApplicationController
   # GET /traces/new
   # GET /traces/new.xml
   def new
-    @trace = Trace.new
+    @trace = Trace.new(params[:trace])
 
     respond_to do |format|
       format.html # new.html.erb

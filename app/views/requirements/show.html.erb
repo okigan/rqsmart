@@ -1,26 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @requirement.title %>
-</p>
+<b>Id:</b> <%= @requirement.id %><br />
+<b>Title:</b> <%= @requirement.title %><br />
+<b>Body:</b> <%= @requirement.body %><br />
+<b>Parent:</b> <%=link_to @requirement.parent_requirement_id, requirement_path(@requirement.parent_requirement_id) %> <br />
 
+<br />
+Traces:
 <p>
-  <b>Body:</b>
-  <%= @requirement.body %>
+<% @requirement.traces.each do |t| %>
+<%= render :partial => t, :locals => {:trace => t} %>
+<% end %>
 </p>
-
-<p>
-  <b>Parent requirement:</b>
-  <%= @requirement.parent_requirement_id %>
-</p>
-
 
 <%= link_to 'Edit', edit_requirement_path(@requirement) %> |
-<%= link_to 'Back', requirements_path %>
-
-
-<%= form_for @requirement.children.build() do |f| %>
-  <div><%= f.hidden_field :parent_requirement_id %></div>
-  <div class="actions"><%= f.submit "Add child requirement" %></div>
-<% end %>
+<%= link_to 'Back', requirements_path %> | 
+<%= link_to 'Add child', :controller => :requirements, :action => :new, :requirement => {:parent_requirement_id => @requirement.id} %> | 
+<%= link_to 'New Trace', :controller => :traces, :action => :new, :trace => {:requirement_id => @requirement.id } %>

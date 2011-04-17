@@ -27,7 +27,7 @@ class RequirementsController < ApplicationController
   # GET /requirements/new
   # GET /requirements/new.xml
   def new
-    @requirement = Requirement.new
+    @requirement = Requirement.new(params[:requirement])
 
     respond_to do |format|
       format.html # new.html.erb
