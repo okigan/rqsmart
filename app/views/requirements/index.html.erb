@@ -1,4 +1,8 @@
 <h1>Listing requirements</h1>
+<%= form_for @search do |f| %>
+    <%= f.text_field :body_contains  %>
+    <%= f.submit "Search" %>
+<% end %>
 
 <table>
   <tr>

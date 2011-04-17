@@ -2,7 +2,10 @@ class RequirementsController < ApplicationController
   # GET /requirements
   # GET /requirements.xml
   def index
-    @requirements = Requirement.all
+   # @requirements = Requirement.all
+   
+    @search = Requirement.search(params[:search])
+    @requirements = @search.all   # or @search.relation to lazy load in view  
 
     respond_to do |format|
       format.html # index.html.erb
