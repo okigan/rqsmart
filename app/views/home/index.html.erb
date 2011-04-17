@@ -1,3 +1,19 @@
-Requirements in the system: <%= @requirements.count %>
+Overall requirements in the system: <%= @requirements.count %> <br />
+Top level requirements in the system: <%= @toplevel_requirements.count %> <br />
+Traces in the system: <%= @traces.count %> <br />
+
 <br />
-Traces in the system: <%= @traces.count %>
+
+<% @toplevel_requirements.each do |r| %>
+<%= render :partial => r, :locals => {:requirement => r} %>
+    <blockquote class="notopbottommargin">
+    <% r.children.each do |c| %>
+        <%= render :partial => c, :locals => {:requirement => c}  %>
+        <blockquote class="notopbottommargin">
+        <% c.children.each do |d| %>
+            <%= render :partial => d %>
+        <% end %>
+        </blockquote>
+    <% end %>
+    </blockquote>
+<% end %>
