@@ -1,5 +1,10 @@
-<%= link_to requirement.title, requirement %> 
-<% if requirement.outofdate == true %>
-!
-<% end %>
+<%= link_to requirement.title, requirement %><% if requirement.outofdate == true %>!<% end %>
+<% if requirement.children.count > 0 %>
+    <blockquote class="notopbottommargin">
+        <% requirement.children.each do |c| %>
+            <%= render :partial => c %>
+        <% end %>
+    </blockquote>
+<% else %>
 <br />
+<% end %>
