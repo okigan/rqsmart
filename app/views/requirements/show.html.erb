@@ -3,7 +3,11 @@
 <b>Id:</b> <%= @requirement.id %><br />
 <b>Title:</b> <%= @requirement.title %><br />
 <b>Body:</b> <%= @requirement.body %><br />
+<% if @requirement.parent_requirement_id != nil %>
 <b>Parent:</b> <%=link_to @requirement.parent_requirement_id, requirement_path(@requirement.parent_requirement_id) %> <br />
+<% else %>
+<b>Parent:</b> None <br />
+<% end %>
 
 <br />
 Traces:
@@ -15,5 +19,5 @@ Traces:
 
 <%= link_to 'Edit', edit_requirement_path(@requirement) %> |
 <%= link_to 'Back', requirements_path %> | 
-<%= link_to 'Add child', :controller => :requirements, :action => :new, :requirement => {:parent_requirement_id => @requirement.id} %> | 
-<%= link_to 'New Trace', :controller => :traces, :action => :new, :trace => {:requirement_id => @requirement.id } %>
+<%= link_to 'New child', :controller => :requirements, :action => :new, :requirement => {:parent_requirement_id => @requirement.id} %> | 
+<%= link_to 'New trace', :controller => :traces, :action => :new, :trace => {:requirement_id => @requirement.id } %>
