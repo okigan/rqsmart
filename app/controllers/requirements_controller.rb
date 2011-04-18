@@ -90,12 +90,4 @@ class RequirementsController < ApplicationController
     end
   end
   
-  def create_child_requirement
-      @parent = Parent.find(params[:id])
-      @child = @parent.children.build(params[:child])
-      if @child.save
-        @child = Child.new
-      end
-      render :action => :show  
-  end 
 end
