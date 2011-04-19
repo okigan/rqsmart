@@ -2,3 +2,13 @@
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+nav ul.hmenu li {
+    display: inline-block;
+}
+
+
+nav ul.hmenu {
+    margin-left: auto;
+    margin-right: auto;
+}
