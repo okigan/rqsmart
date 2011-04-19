@@ -9,6 +9,12 @@
 <b>Parent:</b> None <br />
 <% end %>
 
+<%= link_to 'Edit', edit_requirement_path(@requirement) %> |
+<%= link_to 'Back', requirements_path %> | 
+<%= link_to 'New child', :controller => :requirements, :action => :new, :requirement => {:parent_requirement_id => @requirement.id} %> | 
+<%= link_to 'New trace', :controller => :traces, :action => :new, :trace => {:requirement_id => @requirement.id } %>
+
+<br />
 <br />
 Depends on:
 <p>
@@ -23,8 +29,3 @@ Dependency off:
 <%= render :partial => r, :locals => {:requirement => r} %>
 <% end %>
 </p>
-
-<%= link_to 'Edit', edit_requirement_path(@requirement) %> |
-<%= link_to 'Back', requirements_path %> | 
-<%= link_to 'New child', :controller => :requirements, :action => :new, :requirement => {:parent_requirement_id => @requirement.id} %> | 
-<%= link_to 'New trace', :controller => :traces, :action => :new, :trace => {:requirement_id => @requirement.id } %>

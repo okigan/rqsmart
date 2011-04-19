@@ -1,0 +1,10 @@
+<%= link_to (requirement.id.to_s + ' ' + requirement.title.to_s), requirement %><% if requirement.outofdate == true %>!<% end %>
+<% if requirement.children.count > 0 %>
+    <blockquote class="notopbottommargin">
+        <% requirement.children.each do |c| %>
+            <%= render :partial => 'shared/hierachy', :locals => {:requirement => c } %>
+        <% end %>
+    </blockquote>
+<% else %>
+<br />
+<% end %>

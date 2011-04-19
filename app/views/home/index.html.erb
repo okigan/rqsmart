@@ -5,5 +5,5 @@ Traces in the system: <%= @traces.count %> <br />
 <br />
 
 <% @toplevel_requirements.each do |r| %>
-<%= render :partial => r, :locals => {:requirement => r} %>
+<%= render :partial => 'shared/hierachy', :locals => {:requirement => r} %>
 <% end %>
