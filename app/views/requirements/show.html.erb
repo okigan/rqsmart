@@ -10,10 +10,17 @@
 <% end %>
 
 <br />
-Traces:
+Depends on:
 <p>
-<% @requirement.traces.each do |t| %>
-<%= render :partial => t, :locals => {:trace => t} %>
+<% @requirement.depends_on.each do |r| %>
+<%= render :partial => r, :locals => {:requirement => r} %>
+<% end %>
+</p>
+
+Dependency off:
+<p>
+<% @requirement.dependcy_off.each do |r| %>
+<%= render :partial => r, :locals => {:requirement => r} %>
 <% end %>
 </p>
 
