@@ -16,7 +16,7 @@ class Requirement < ActiveRecord::Base
         
     has_many :depends_on,
         :through => :reverse_traces,
-        :source => :dependent_requirement
+        :source => :requirement
     
     scope :rootlevel, where(:parent_requirement_id => nil)
     
