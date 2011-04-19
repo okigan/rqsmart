@@ -23,10 +23,10 @@ class Requirement < ActiveRecord::Base
     scope :lowerlevel, where("parent_requirement_id <> ?", 0)
     
     def outofdate
-        if self.parent == nil
-        else
-            return self.parent.updated_at > updated_at
-        end
+        #if self.parent == nil
+        #else
+        #    return self.parent.updated_at > updated_at
+        #end
         
         traces.each do |t| 
             if t.updated_at > updated_at
